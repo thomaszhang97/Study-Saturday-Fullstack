@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(morgan('dev'));
 
+// we want to use all our routes in our student folder for the /student URI
 app.use('/student', Student);
 app.use('/test', Test);
 

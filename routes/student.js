@@ -24,9 +24,9 @@ router.post('/', function(req, res, next) {
         Test.create({
           subject: 'Programming',
           grade: 90,
-          studentId: studentNoTest.id,
+          studentId: studentNoTest.id
         }),
-        studentNoTest,
+        studentNoTest
       ]);
     })
     .then(([test, student]) => {
@@ -42,9 +42,9 @@ router.post('/', function(req, res, next) {
 router.put('/:id', function(req, res, next) {
   Student.update(req.body, {
     where: {
-      id: req.params.id,
+      id: req.params.id
     },
-    returning: true,
+    returning: true
   })
     .then(test => res.status(201).json(test[1][0]))
     .catch(next);
@@ -53,8 +53,8 @@ router.put('/:id', function(req, res, next) {
 router.delete('/:id', function(req, res, next) {
   Student.destroy({
     where: {
-      id: req.params.id,
-    },
+      id: req.params.id
+    }
   })
     .then(() => {
       res.sendStatus(204);

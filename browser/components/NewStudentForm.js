@@ -6,7 +6,7 @@ export default class NewStudentForm extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      email: '',
+      email: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,19 +14,27 @@ export default class NewStudentForm extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   }
+
+  // handleChange is updating all fields of our state within the function
+  // so.. this.state IS our new student
+  // reset our state once
   handleSubmit(event) {
     event.preventDefault();
+
+    this.props.addStudent(this.state);
     this.setState({
       firstName: '',
       lastName: '',
-      email: '',
+      email: ''
     });
   }
 
   render() {
+    // console.log('PROPS:', this.props);
+    // const { addStudent } = this.props
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
